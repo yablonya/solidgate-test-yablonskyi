@@ -45,3 +45,11 @@ button {
   font-family: inherit;
   cursor: pointer;
 }
+
+input {
+  font-family: inherit;
+
+  input::placeholder {
+    font-family: inherit;
+  }
+}

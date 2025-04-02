@@ -22,7 +22,7 @@ const Input: FC<InputProps> = ({ className = "", id, label, helperText, suffix, 
           className={styles["input__field"]}
           {...otherProps}
         />
-        {suffix && <span className={styles["input__input-suffix"]}>{suffix}</span>}
+        {suffix && <span className={styles["input__suffix"]}>{suffix}</span>}
       </label>
 
       {helperText && (
