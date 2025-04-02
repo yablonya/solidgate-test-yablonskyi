@@ -7,6 +7,7 @@ type BackButtonProps = ButtonHTMLAttributes<HTMLButtonElement>
 const BackButton: FC<BackButtonProps> = ({ className = "", ...otherProps }) => {
   return (
     <button
+      type="button"
       className={`${styles["back-button"]} ${className}`.trim()}
       {...otherProps}
     >

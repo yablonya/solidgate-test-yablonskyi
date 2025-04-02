@@ -67,6 +67,7 @@ const PaymentBlock = () => {
   return (
     <div className={styles["payment-block"]}>
       <button
+        type="button"
         onClick={handleApplePayClick}
         className={styles["payment-block__apple-pay-btn"]}
       >

@@ -35,6 +35,7 @@ const Header = () => {
 
       <div className={styles["header__mobile-lang-controls"]}>
         <button
+          type="button"
           onClick={toggleMobileDropdown}
           className={`${styles["header__lang-btn"]} ${styles["header__current-lang"]}`}
         >
@@ -46,6 +47,7 @@ const Header = () => {
             {languages.map(({ code, label }) => (
               <button
                 key={code}
+                type="button"
                 onClick={() => handleMobileLanguageSelect(code)}
                 className={getButtonClass(code)}
               >
@@ -60,6 +62,7 @@ const Header = () => {
         {languages.map(({ code, label }) => (
           <button
             key={code}
+            type="button"
             onClick={() => setCurrentLang(code)}
             className={getButtonClass(code)}
           >
