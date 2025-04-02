@@ -28,12 +28,18 @@ Danylo Yablonskyi
 
 2. **Start the development server:**
 
-    ```npm run dev```
+   ```
+   npm run dev
+   ```
 
-3. **Build for production:**
+4. **Build for production:**
 
-    ```npm run build```
+   ```
+   npm run build
+   ```
 
-4. **Preview the production build:**
+6. **Preview the production build:**
 
-    ```npm run preview```
+   ```
+   npm run preview
+   ```
