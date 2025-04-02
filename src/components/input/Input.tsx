@@ -1,4 +1,5 @@
 import type { FC, InputHTMLAttributes, ReactNode } from "react";
+import { useTranslation } from "react-i18next";
 import styles from "./Input.module.scss";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -8,6 +9,8 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const Input: FC<InputProps> = ({ className = "", id, label, helperText, suffix, ...otherProps }) => {
+  const { t } = useTranslation();
+
   return (
     <div className={`${styles["input"]} ${className}`.trim()}>
       {label && (
@@ -27,7 +30,7 @@ const Input: FC<InputProps> = ({ className = "", id, label, helperText, suffix, 
 
       {helperText && (
         <span className={styles["input__helper-text"]}>
-          {helperText}
+          {t(helperText)}
         </span>
       )}
     </div>

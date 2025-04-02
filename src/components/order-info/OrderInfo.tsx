@@ -1,8 +1,10 @@
+import { useTranslation } from "react-i18next";
 import { useOrder } from "../../hooks/use-order/useOrder.ts";
 import Divider from "../divider/Divider.tsx";
 import styles from "./OrderInfo.module.scss";
 
 const OrderInfo = () => {
+  const { t } = useTranslation();
   const { order } = useOrder();
 
   return (
@@ -22,8 +24,8 @@ const OrderInfo = () => {
       <Divider/>
 
       <div className={styles["order-info__footer"]}>
-        <h4>5 days free</h4>
-        <p>then {order.price} UAH per 14 days</p>
+        <h4>{t("offerFree")}</h4>
+        <p>{t("offerThen")} {order.price} {t("offerPeriod")}</p>
       </div>
     </div>
   );

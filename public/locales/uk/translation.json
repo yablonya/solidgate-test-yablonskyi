@@ -1,0 +1,36 @@
+{
+  "checkoutTitle": "Оформлення",
+  "orPayWithCard": "або оплатити картою",
+  "cardNumber": "Номер Картки",
+  "expirationDate": "Термін Дії",
+  "cvcHint": "3-значний або 4-значний код безпеки на зворотному боці картки",
+  "startTrial": "Почати пробний період",
+  "processing": "Обробка платежу",
+  "offerFree": "5 днів безкоштовно",
+  "offerThen": "потім",
+  "offerPeriod": "грн кожні 14 днів",
+  "policyBeginning": "Ви матимете",
+  "policyProPlan": "Plan Pro протягом 1 року",
+  "policyAfter": ". Після цього періоду ваша підписка буде",
+  "policyRenewed": "автоматично поновлена",
+  "policyEnding": "за початковою ціною без знижки.",
+  "paymentViaCard": "Оплата карткою пройшла успішно",
+  "paymentViaApple": "Оплата через Apple Pay пройшла успішно",
+
+  "validation": {
+    "cardEmpty": "Номер картки не може бути порожнім",
+    "cardLength": "Номер картки повинен містити 16 символів",
+    "cardDigitsOnly": "Номер картки повинен містити лише цифри",
+    "cardInvalidFormat": "Невірний формат номера картки",
+    "expiryEmpty": "Термін дії не може бути порожнім",
+    "expiryTwoNumbers": "Термін дії повинен містити два числа (місяць та рік)",
+    "expiryDigitsOnly": "Термін дії повинен містити лише цифри",
+    "expiryMonthLimit": "Номер місяця не може бути більшим за 12",
+    "expiryInvalidFormat": "Невірний формат терміну дії (формат MM/YY)",
+    "cardExpired": "Картка прострочена",
+    "cvcEmpty": "CVC не може бути порожнім",
+    "cvcDigitsOnly": "CVC повинен містити лише цифри",
+    "cvcLength": "CVC повинен містити 3 або 4 цифри",
+    "cvcInvalidFormat": "Невірний формат CVC"
+  }
+}

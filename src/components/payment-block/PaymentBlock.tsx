@@ -1,8 +1,9 @@
 import { useState, type FormEvent } from "react";
+import { useTranslation } from "react-i18next";
+import useFormField from "../../hooks/use-form-field/useFormField.ts";
 import applePayLogo from "../../assets/apple-pay.svg";
 import loaderIcon from "../../assets/loader.svg";
 import infoIcon from "../../assets/info.svg";
-import useFormField from "../../hooks/use-form-field/useFormField.ts";
 import { formatCardNumber, formatCVC, formatExpiryDate } from "../../utils/inputFormat.ts";
 import { validateCardNumber, validateCVC, validateExpiryDate } from "../../utils/inputValidation.ts";
 import Divider from "../divider/Divider.tsx";
@@ -10,6 +11,7 @@ import Input from "../input/Input.tsx";
 import styles from "./PaymentBlock.module.scss";
 
 const PaymentBlock = () => {
+  const { t } = useTranslation();
   const cardNumberField = useFormField("", formatCardNumber, validateCardNumber);
   const expDateField = useFormField("", formatExpiryDate, validateExpiryDate);
   const cvcField = useFormField("", formatCVC, validateCVC);
@@ -17,7 +19,7 @@ const PaymentBlock = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleApplePayClick = () => {
-    alert("Payment via Apple Pay was successful");
+    alert(t("paymentViaApple"));
   };
 
   const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -38,7 +40,7 @@ const PaymentBlock = () => {
     setIsLoading(true);
 
     setTimeout(() => {
-      alert("Payment via card was successful");
+      alert(t("paymentViaApple"));
       cardNumberField.setValue("");
       expDateField.setValue("");
       cvcField.setValue("");
@@ -76,7 +78,7 @@ const PaymentBlock = () => {
 
       <div className={styles["payment-block__text-divider"]}>
         <Divider />
-        <span>or pay with card</span>
+        <span>{t("orPayWithCard")}</span>
         <Divider />
       </div>
 
@@ -88,7 +90,7 @@ const PaymentBlock = () => {
           placeholder="1234 1234 1234 1234"
           helperText={cardNumberField.error}
           maxLength={19}
-          label="Card Number"
+          label={t("cardNumber")}
           value={cardNumberField.value}
           onChange={cardNumberField.onChange}
           onBlur={cardNumberField.onBlur}
@@ -100,7 +102,7 @@ const PaymentBlock = () => {
           name="exp-date"
           placeholder="MM/YY"
           helperText={expDateField.error}
-          label="Expiration Date"
+          label={t("expirationDate")}
           maxLength={5}
           value={expDateField.value}
           onChange={expDateField.onChange}
@@ -123,7 +125,7 @@ const PaymentBlock = () => {
             <img
               src={infoIcon}
               alt="Info icon"
-              title="3-digit or 4-digit security code on the back of your card"
+              title={t("cvcHint")}
               style={{ cursor: "pointer" }}
             />
           )}
@@ -133,7 +135,7 @@ const PaymentBlock = () => {
         <div className={styles["payment-block__submit"]}>
           <button type="submit" className={styles["payment-block__submit-btn"]}>
             <span className={submitDefaultTextClass}>
-              Start Trial
+              {t("startTrial")}
             </span>
 
             <span className={submitLoadingTextClass}>
@@ -142,14 +144,12 @@ const PaymentBlock = () => {
                 alt="Loader icon"
                 className={styles["payment-block__loader"]}
               />
-              Processing payment
+              {t("processing")}
             </span>
           </button>
 
           <p className={styles["payment-block__plan-policy"]}>
-            You'll have your <b>Plan Pro during 1 year</b>. After this period, your plan
-            will be <b>automatically renewed</b> with its original price without any discounts
-            applied.
+            {t("policyBeginning")} <b>{t("policyProPlan")}</b>{t("policyAfter")} <b>{t("policyRenewed")}</b> {t("policyEnding")}
           </p>
         </div>
       </form>

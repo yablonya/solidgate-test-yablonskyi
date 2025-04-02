@@ -1,0 +1,36 @@
+{
+  "checkoutTitle": "Checkout",
+  "orPayWithCard": "or pay with card",
+  "cardNumber": "Card Number",
+  "expirationDate": "Expiration Date",
+  "cvcHint": "3-digit or 4-digit security code on the back of your card",
+  "startTrial": "Start Trial",
+  "processing": "Processing payment",
+  "offerFree": "5 days free",
+  "offerThen": "then",
+  "offerPeriod": "UAH per 14 days",
+  "policyBeginning": "You'll have your",
+  "policyProPlan": "Plan Pro during 1 year",
+  "policyAfter": ". After this period, your plan will be",
+  "policyRenewed": "automatically renewed",
+  "policyEnding": "with its original price without any discounts applied.",
+  "paymentViaCard": "Payment via card was successful",
+  "paymentViaApple": "Payment via Apple Pay was successful",
+
+  "validation": {
+    "cardEmpty": "Card number cannot be empty",
+    "cardLength": "Card number must contain 16 characters",
+    "cardDigitsOnly": "Card number must contain digits only",
+    "cardInvalidFormat": "Invalid card number format",
+    "expiryEmpty": "Expiry date cannot be empty",
+    "expiryTwoNumbers": "Expiry date must contain two numbers (month and year)",
+    "expiryDigitsOnly": "Expiry date must contain digits only",
+    "expiryMonthLimit": "Month number cannot be more than 12",
+    "expiryInvalidFormat": "Invalid expiry date format (format MM/YY)",
+    "cardExpired": "Card is expired",
+    "cvcEmpty": "CVC cannot be empty",
+    "cvcDigitsOnly": "CVC must contain digits only",
+    "cvcLength": "CVC must be 3 or 4 digits long",
+    "cvcInvalidFormat": "Invalid CVC format"
+  }
+}

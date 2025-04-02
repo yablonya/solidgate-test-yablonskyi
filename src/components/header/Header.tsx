@@ -1,30 +1,26 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { type SupportedLng, supportedLngs } from "../../i18n/config.ts";
 import BackButton from "../back-button/BackButton.tsx";
 import MobileCheckoutInfo from "../checkout-info/mobile/MobileCheckoutInfo.tsx";
 import styles from "./Header.module.scss";
 
 const Header = () => {
-  const [currentLang, setCurrentLang] = useState("uk");
+  const { i18n } = useTranslation();
+  const activeLocale = i18n.resolvedLanguage;
   const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
-
-  const languages = [
-    { code: "en", label: "Eng" },
-    { code: "uk", label: "Укр" },
-  ];
 
   const getButtonClass = (langCode: string) =>
     `${styles["header__lang-btn"]} ${
-      currentLang === langCode ? styles["header__current-lang"] : ""
+      activeLocale === langCode ? styles["header__current-lang"] : ""
     }`.trim();
-
-  const currentLanguage = languages.find((lang) => lang.code === currentLang);
 
   const toggleMobileDropdown = () => {
     setIsMobileDropdownOpen((prev) => !prev);
   };
 
   const handleMobileLanguageSelect = (code: string) => {
-    setCurrentLang(code);
+    i18n.changeLanguage(code);
     setIsMobileDropdownOpen(false);
   };
 
@@ -39,12 +35,12 @@ const Header = () => {
           onClick={toggleMobileDropdown}
           className={`${styles["header__lang-btn"]} ${styles["header__current-lang"]}`}
         >
-          {currentLanguage ? currentLanguage.label : "Lang"}
+          {supportedLngs[activeLocale as SupportedLng]}
         </button>
 
         {isMobileDropdownOpen && (
           <div className={styles["header__mobile-lang-dropdown"]}>
-            {languages.map(({ code, label }) => (
+            {Object.entries(supportedLngs).map(([code, label]) => (
               <button
                 key={code}
                 type="button"
@@ -59,11 +55,11 @@ const Header = () => {
       </div>
 
       <div className={styles["header__desktop-lang-controls"]}>
-        {languages.map(({ code, label }) => (
+        {Object.entries(supportedLngs).map(([code, label]) => (
           <button
             key={code}
             type="button"
-            onClick={() => setCurrentLang(code)}
+            onClick={() => i18n.changeLanguage(code)}
             className={getButtonClass(code)}
           >
             {label}

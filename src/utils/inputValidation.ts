@@ -7,19 +7,19 @@ const containsLetters = (value: string): boolean => /[a-zA-Z]/.test(value);
 
 export function validateCardNumber(cardNumber: string): true | string {
   if (isEmpty(cardNumber)) {
-    return "Card number cannot be empty";
+    return "validation.cardEmpty";
   }
 
   if (cardNumber.replace(/\s/g, '').length !== 16) {
-    return "Card number must contain 16 characters";
+    return "validation.cardLength";
   }
 
   if (containsLetters(cardNumber)) {
-    return "Card number must contain digits only";
+    return "validation.cardDigitsOnly";
   }
 
   if (!CARD_NUMBER_REGEX.test(cardNumber)) {
-    return "Invalid card number format";
+    return "validation.cardInvalidFormat";
   }
 
   return true;
@@ -27,25 +27,25 @@ export function validateCardNumber(cardNumber: string): true | string {
 
 export function validateExpiryDate(expiryDate: string): true | string {
   if (isEmpty(expiryDate)) {
-    return "Expiry date cannot be empty";
+    return "validation.expiryEmpty";
   }
 
   const dateValues = expiryDate.split("/");
 
   if (dateValues.length !== 2) {
-    return "Expiry date must contain two numbers(month and year)";
+    return "validation.expiryTwoNumbers";
   }
 
   if (containsLetters(expiryDate)) {
-    return "Expiry date must contain digits only";
+    return "validation.expiryDigitsOnly";
   }
 
   if (+dateValues[0] > 12) {
-    return "Month number cannot be more than 12";
+    return "validation.expiryMonthLimit";
   }
 
   if (!EXPIRY_DATE_REGEX.test(expiryDate)) {
-    return "Invalid expiry date format (format MM/YY)";
+    return "validation.expiryInvalidFormat";
   }
 
   const [month, year] = expiryDate.split('/').map(Number);
@@ -54,7 +54,7 @@ export function validateExpiryDate(expiryDate: string): true | string {
   const currentDate = new Date();
 
   if (expiryDateObj < currentDate) {
-    return "Card is expired";
+    return "validation.cardExpired";
   }
 
   return true;
@@ -62,19 +62,19 @@ export function validateExpiryDate(expiryDate: string): true | string {
 
 export function validateCVC(cvc: string): true | string {
   if (isEmpty(cvc)) {
-    return "CVC cannot be empty";
+    return "validation.cvcEmpty";
   }
 
   if (containsLetters(cvc)) {
-    return "CVC must contain digits only";
+    return "validation.cvcDigitsOnly";
   }
 
   if (cvc.length !== 3 && cvc.length !== 4) {
-    return "CVC must be 3 or 4 digits long";
+    return "validation.cvcLength";
   }
 
   if (!CVC_REGEX.test(cvc)) {
-    return "Invalid CVC format";
+    return "validation.cvcInvalidFormat";
   }
 
   return true;
