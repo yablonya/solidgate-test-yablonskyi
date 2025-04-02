@@ -1,0 +1,33 @@
+.mobile-checkout-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 4px;
+  text-align: center;
+
+  h3 {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 32px;
+  }
+
+  &__content {
+    h4 {
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 40px;
+    }
+
+    p {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 24px;
+    }
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .mobile-checkout-info {
+    display: none;
+  }
+}

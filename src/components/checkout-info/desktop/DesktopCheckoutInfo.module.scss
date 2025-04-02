@@ -1,0 +1,31 @@
+.desktop-checkout-info {
+  display: none;
+  flex-direction: column;
+  gap: 16px;
+
+  h3 {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 40px;
+  }
+
+  &__content {
+    h4 {
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 40px;
+    }
+
+    p {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 24px;
+    }
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .desktop-checkout-info {
+    display: flex;
+  }
+}

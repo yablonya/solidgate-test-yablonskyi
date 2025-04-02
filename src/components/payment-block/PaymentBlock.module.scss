@@ -1,0 +1,144 @@
+.payment-block {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 420px;
+
+  &__apple-pay-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    width: 100%;
+    border-radius: 3px;
+    background: var(--bg-primary);
+  }
+
+  &__text-divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-top: 8px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
+  }
+
+  &__form {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 12px;
+    column-gap: 8px;
+  }
+
+  &__input:nth-child(2),
+  &__input:nth-child(3) {
+    width: calc(50% - 8px / 2);
+  }
+
+  &__submit {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+
+  &__submit-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    width: 100%;
+    border-radius: 3px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    text-align: center;
+    background: var(--bg-brand);
+    color: var(--text-white);
+    margin-top: 4px;
+    position: relative;
+    transform: translateY(0);
+    transition: transform .2s, background .2s;
+
+    &:active {
+      background: var(--bg-brand_active);
+      transform: translateY(6px);
+    }
+  }
+
+  &__submit-default-text {
+    position: absolute;
+    visibility: visible;
+    opacity: 1;
+    transition: all .3s;
+  }
+
+  &__submit-default-text-fade-out {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+
+  &__submit-loading-text {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(50%);
+    transition: all .3s;
+  }
+
+  &__submit-loading-text-fade-in {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &__loader {
+    animation: spin 1s linear infinite;
+  }
+
+  &__plan-policy {
+    border: 1px solid var(--border-divider);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    color: var(--text-secondary);
+
+    b {
+      font-weight: 600;
+    }
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .payment-block {
+    &__submit-btn {
+      &:hover {
+        background: var(--bg-brand_hover);
+        transform: translateY(-2px);
+      }
+
+      &:active {
+        transform: translateY(4px);
+      }
+    }
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
